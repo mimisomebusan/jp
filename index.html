@@ -107,7 +107,7 @@
     display:grid;grid-template-columns:1fr 1fr 1fr;
     gap:8px;padding:10px 10px 0;
   }
-  .menu-card{
+  .menu-card{display:flex;flex-direction:column;justify-content:center;
     background:var(--white);
     border-radius:18px;
     padding:22px 8px 18px;
@@ -161,7 +161,7 @@
   .mc-surgery .card-icon-wrap{background:rgba(180,100,100,0.12);}
 
   .card-title{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:600;color:var(--dark);text-align:center;letter-spacing:0.8px;}
-  .card-desc{font-size:10.5px;color:var(--light-text);text-align:center;line-height:1.55;letter-spacing:0.3px;}
+  .card-desc{font-size:10.5px;line-height:1.5;color:var(--light-text);text-align:center;line-height:1.55;letter-spacing:0.3px;}
 
   /* CTA bar below grid */
   .menu-cta-wrap{padding:10px 10px 0;}
@@ -240,6 +240,7 @@
   .t-card.wide .ci{margin-bottom:0;}
 
   .treatment-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px;}
+  .t-card:not(.wide){display:flex;flex-direction:column;}
   .t-card{background:var(--white);border-radius:14px;padding:18px 14px 16px;border:1px solid rgba(244,123,32,0.1);cursor:pointer;transition:all 0.25s ease;position:relative;overflow:hidden;}
   .t-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--orange-deep));transform:scaleX(0);transition:transform 0.25s;transform-origin:left;}
   .t-card:hover{box-shadow:0 6px 24px rgba(244,123,32,0.15);transform:translateY(-2px);border-color:rgba(244,123,32,0.25);}
@@ -250,7 +251,7 @@
   .t-card.wide .t-icon{font-size:30px;margin-bottom:0;flex-shrink:0;}
   .t-name{font-family:'Noto Serif JP',serif;font-size:14px;font-weight:600;color:var(--dark);line-height:1.4;letter-spacing:0.5px;}
   .t-name-en{font-family:'Cormorant Garamond',serif;font-size:10px;color:var(--orange);letter-spacing:1.5px;display:block;margin-top:2px;}
-  .t-desc{font-size:11px;color:var(--light-text);margin-top:7px;line-height:1.6;}
+  .t-desc{font-size:11px;flex-grow:1;display:flex;flex-direction:column;justify-content:center;color:var(--light-text);margin-top:7px;line-height:1.6;}
 
   /* ─── CTA ─── */
   .cta-bar{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;padding:12px 18px 18px;background:linear-gradient(180deg,transparent,var(--off-white) 35%);z-index:100;}
@@ -289,13 +290,14 @@
   .hero-sub-brand{animation:fadeSlideUp 0.9s ease both 0.55s;}
   .hero-divider{animation:fadeSlideUp 0.9s ease both 0.7s;}
   .menu-tagline{animation:fadeSlideUp 0.9s ease both 0.85s;}
-  .screen.active .menu-card{animation:fadeUp 0.4s ease both;}
+  .screen.active .menu-card{display:flex;flex-direction:column;justify-content:center;animation:fadeUp 0.4s ease both;}
   .screen.active .menu-cta{animation:fadeUp 0.4s ease both 0.3s;}
-  .screen.active .t-card{animation:fadeUp 0.35s ease both;}
+  .screen.active .t-card:not(.wide){display:flex;flex-direction:column;}
+  .t-card{animation:fadeUp 0.35s ease both;}
   .screen.active .ct-item{animation:fadeUp 0.35s ease both;}
   .menu-card:nth-child(1){animation-delay:.06s} .menu-card:nth-child(2){animation-delay:.10s} .menu-card:nth-child(3){animation-delay:.14s}
   .menu-card:nth-child(4){animation-delay:.18s} .menu-card:nth-child(5){animation-delay:.22s} .menu-card:nth-child(6){animation-delay:.26s}
-  .menu-card{animation:glowPulse 4s ease-in-out infinite;}
+  .menu-card{display:flex;flex-direction:column;justify-content:center;animation:glowPulse 4s ease-in-out infinite;}
   .menu-card:nth-child(1){animation-delay:0s} .menu-card:nth-child(2){animation-delay:0.7s} .menu-card:nth-child(3){animation-delay:1.4s}
   .menu-card:nth-child(4){animation-delay:2.1s} .menu-card:nth-child(5){animation-delay:2.8s} .menu-card:nth-child(6){animation-delay:3.5s}
   .t-card:nth-child(1){animation-delay:.05s} .t-card:nth-child(2){animation-delay:.10s} .t-card:nth-child(3){animation-delay:.15s}
@@ -332,32 +334,32 @@
       <div class="menu-card mc-inject" onclick="goTo('screen-inject')">
         <div class="card-icon-wrap">💉</div>
         <div class="card-title">プチ整形注射</div>
-        <div class="card-desc">ヒアルロン酸・ボトックス<br>輪郭注射・QO FILL</div>
+        <div class="card-desc">HA・ボトックス<br>輪郭注射・QO FILL</div>
       </div>
       <div class="menu-card mc-lift" onclick="goTo('screen-lift')">
         <div class="card-icon-wrap">⚡</div>
         <div class="card-title">リフトアップ</div>
-        <div class="card-desc">電波・超音波・RF<br>糸リフト・ニードルRF</div>
+        <div class="card-desc">電波・超音波・RF<br>糸リフト・MNRF</div>
       </div>
       <div class="menu-card mc-booster" onclick="goTo('screen-booster')">
         <div class="card-icon-wrap">✨</div>
-        <div class="card-title">肌再生</div>
-        <div class="card-desc">コラーゲン増生・水光注射<br>幹細胞・美容点滴</div>
+        <div class="card-title">スキンブースター</div>
+        <div class="card-desc">コラーゲン増生<br>水光・幹細胞・点滴</div>
       </div>
       <div class="menu-card mc-skin" onclick="goTo('screen-skin')">
         <div class="card-icon-wrap">🌿</div>
         <div class="card-title">皮膚治療</div>
-        <div class="card-desc">色素美白・毛穴・傷跡<br>赤み・ニキビ・スキンケア</div>
+        <div class="card-desc">色素・毛穴・傷跡<br>赤み・ニキビ管理</div>
       </div>
       <div class="menu-card mc-body" onclick="goTo('screen-body')">
         <div class="card-icon-wrap">🌊</div>
         <div class="card-title">ボディ・脱毛</div>
-        <div class="card-desc">脱毛・脂肪溶解・減量<br>ボディフィラー・タトゥー除去</div>
+        <div class="card-desc">脱毛・脂肪溶解<br>減量・フィラー<br>タトゥー除去</div>
       </div>
       <div class="menu-card mc-surgery" onclick="goTo('screen-surgery')">
         <div class="card-icon-wrap">🏥</div>
         <div class="card-title">美容整形</div>
-        <div class="card-desc">目・鼻・フェイスリフト<br>脂肪吸引・脂肪注入</div>
+        <div class="card-desc">目・鼻・リフト<br>脂肪吸引・脂肪注入</div>
       </div>
     </div>
     <div class="menu-cta-wrap">
@@ -394,13 +396,13 @@
         <div class="t-card wide"><div class="ci" style="width:36px;height:36px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-1 4-4 6-4 10a4 4 0 008 0c0-4-3-6-4-10z"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">オーダーメイドHA デザイン</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Customized HA Design</span><div class="t-desc" style="margin-top:4px;">個人の顔型とニーズに合わせて医師が設計<br>自然で立体的な精密輪郭に</div></div></div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;">
-        <div class="t-card" style="grid-column:auto;text-align:center;padding:18px 6px 14px;"><div class="t-name">上顔</div><span class="t-name-en">Upper</span><div class="t-desc" style="margin-top:6px;">額・こめかみ<br>目の周り</div></div>
-        <div class="t-card" style="grid-column:auto;text-align:center;padding:18px 6px 14px;"><div class="t-name">中顔</div><span class="t-name-en">Mid</span><div class="t-desc" style="margin-top:6px;">涙袋・アップルゾーン<br>頬</div></div>
-        <div class="t-card" style="grid-column:auto;text-align:center;padding:18px 6px 14px;"><div class="t-name">下顔</div><span class="t-name-en">Lower</span><div class="t-desc" style="margin-top:6px;">ほうれい線・あご<br>マリオネット・耳たぶ</div></div>
+        <div class="t-card" style="grid-column:auto;text-align:center;padding:18px 6px 14px;"><div class="t-name">上顔</div><span class="t-name-en">Upper</span><div class="t-desc" style="margin-top:6px;">額・こめかみ<br>目周り</div></div>
+        <div class="t-card" style="grid-column:auto;text-align:center;padding:18px 6px 14px;"><div class="t-name">中顔</div><span class="t-name-en">Mid</span><div class="t-desc" style="margin-top:6px;">涙袋・頬<br>アップルゾーン</div></div>
+        <div class="t-card" style="grid-column:auto;text-align:center;padding:18px 6px 14px;"><div class="t-name">下顔</div><span class="t-name-en">Lower</span><div class="t-desc" style="margin-top:6px;">ほうれい線・あご<br>マリオネット<br>耳たぶ</div></div>
       </div>
       <div class="treatment-grid">
         <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">鼻 / HIKO</div><span class="t-name-en">Nose Filler</span><div class="t-desc" style="margin-top:6px;">非手術隆鼻<br>立体ノーズライン</div></div>
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">唇</div><span class="t-name-en">Lip Design</span><div class="t-desc" style="margin-top:6px;">唇ふっくら・唇形デザイン<br>自然なボリューム</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">唇</div><span class="t-name-en">Lip Design</span><div class="t-desc" style="margin-top:6px;">唇ふっくら<br>唇形デザイン<br>自然なボリューム</div></div>
       </div>
       <div style="background:linear-gradient(135deg,#FFF8F3,#FFF0E5);border:1px solid rgba(244,123,32,0.2);border-radius:12px;padding:14px 16px;margin-bottom:14px;text-align:center;">
         <div style="font-family:'Noto Serif JP',serif;font-size:11px;font-weight:600;color:var(--orange-deep);letter-spacing:1px;margin-bottom:6px;">使用ブランド</div>
@@ -409,12 +411,12 @@
 
       <div class="sub-sec-label">QO FILL</div>
       <div class="treatment-grid">
-        <div class="t-card wide"><div class="ci" style="width:36px;height:36px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="6" opacity="0.6"/><circle cx="15" cy="12" r="6" opacity="0.6"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">QO FILL</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">HA + PRP Complex Filler</span><div class="t-desc" style="margin-top:4px;">ヒアルロン酸+自己血液PRPの複合充填。<br>成長因子でコラーゲン再生促進<br>2年以上持続</div></div></div>
+        <div class="t-card wide"><div class="ci" style="width:36px;height:36px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="6" opacity="0.6"/><circle cx="15" cy="12" r="6" opacity="0.6"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">QO FILL</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">HA + PRP Complex Filler</span><div class="t-desc" style="margin-top:4px;">ヒアルロン酸+自己血液PRPの複合充填。<br>成長因子でコラーゲン再生促進、2年以上持続</div></div></div>
       </div>
 
       <div class="sub-sec-label">ボトックス Botulinum Toxin</div>
       <div class="treatment-grid">
-        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1" stroke-width="1"/><circle cx="12" cy="12" r="2" fill="#D9620A" stroke="none"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">精密ボトックス注射</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Precision Botox</span><div class="t-desc" style="margin-top:4px;">精密な用量コントロールで筋肉リラックス<br>シワ改善・輪郭リモデリング<br>多ブランド対応</div></div></div>
+        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M4.9 4.9l14.2 14.2M19.1 4.9L4.9 19.1" stroke-width="1"/><circle cx="12" cy="12" r="2" fill="#D9620A" stroke="none"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">精密ボトックス注射</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Precision Botox</span><div class="t-desc" style="margin-top:4px;">精密な用量コントロールで筋肉リラックス<br>シワ改善・輪郭リモデリング・多ブランド対応</div></div></div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;">
         <div class="t-card" style="grid-column:auto;text-align:center;padding:18px 6px 14px;"><div class="t-name">表情ジワ</div><span class="t-name-en">Expression</span><div class="t-desc" style="margin-top:6px;">額・眉間・目周り<br>鼻根・口角・あご</div></div>
@@ -476,31 +478,31 @@
 
       <div class="sub-sec-label">RF 高周波</div>
       <div class="treatment-grid">
-        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><path d="M5 12h14"/><path d="M8 8l4 4-4 4"/><path d="M16 8l-4 4 4 4"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">RF高周波タイトニング</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Radiofrequency Tightening</span><div class="t-desc" style="margin-top:4px;">高周波で真皮層コラーゲンを加熱<br>非侵襲型＆マイクロニードル型ダブル対応</div></div></div>
+        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><path d="M5 12h14"/><path d="M8 8l4 4-4 4"/><path d="M16 8l-4 4 4 4"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">RF高周波タイトニング</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Radiofrequency Tightening</span><div class="t-desc" style="margin-top:4px;">高周波で真皮層コラーゲンを加熱<br>非侵襲＆ニードル型ダブル対応</div></div></div>
       </div>
       <!-- RF 고주파 긴치 / 고주파 타이트닝 / 고주파 에너지로 진피층 콜라겐 가열, 비침습+미세침 이중 라인업 -->
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">THERMAGE FLX</div><span class="t-name-en">サーマクール</span><div class="t-desc" style="margin-top:6px;">Solta正規品・電波の王様<br>モノポーラRF・コラーゲンリセット<br>1回で効果1年以上持続</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">THERMAGE FLX</div><span class="t-name-en">サーマクール</span><div class="t-desc" style="margin-top:6px;">Solta正規品・電波の王様<br>モノポーラRF<br>コラーゲンリセット<br>1回で効果1年以上持続</div></div>
         <!-- 써마지 FLX / 봉황전파 / Solta정품・전파의 왕 / 모노폴라RF・전안면 콜라겐 리셋 / 1회 시술 효과 1년+ -->
         <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">VOLNEWMER</div><span class="t-name-en">モノポーラ高周波</span><div class="t-desc" style="margin-top:6px;">Classys正規品・K-Thermage<br>6.78MHzモノポーラRF<br>6段冷却+5段振動</div></div>
         <!-- 볼뉴머 / 單極高週波 / Classys정품・K-Thermage / 6.78MHz 모노폴라RF / 6단쿨링+5단진동 -->
       </div>
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">INMODE</div><span class="t-name-en">FORMA・FX</span><div class="t-desc" style="margin-top:6px;">InMode正規品（イスラエル）<br>FORMA非侵襲RF<br>FXマイクロニードルRF<br>単独orコンビネーション</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">INMODE</div><span class="t-name-en">FORMA・FX</span><div class="t-desc" style="margin-top:6px;">InMode正規品（イスラエル）<br>FORMA非侵襲RF<br>FXマイクロニードルRF</div></div>
         <!-- 인모드 / 포르마・FX / InMode정품(이스라엘) / FORMA 온도제어 비침습RF / FX 분할 미세침RF / 단독 or 콤보 프로그램 -->
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">POTENZA</div><span class="t-name-en">ポテンツァ</span><div class="t-desc" style="margin-top:6px;">Jeisys正規品（韓国）<br>DIAダイヤモンドリフト<br>DDRドラッグデリバリー<br>リフト・引き締め・再生</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">POTENZA</div><span class="t-name-en">ポテンツァ</span><div class="t-desc" style="margin-top:6px;">Jeisys正規品（韓国）<br>DIAダイヤモンドリフト<br>DDRドラッグデリバリー</div></div>
         <!-- 포텐자 / 황금미세침RF / Jeisys정품(한국) / DIA 다이아 리프팅 / DDR 약물도입 / 리프팅・탄력・재생 3중효과 -->
       </div>
 
       <div class="sub-sec-label">レーザーリフティング Laser Lifting</div>
       <div class="treatment-grid">
-        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><path d="M12 3v18"/><path d="M5 8l7 4 7-4"/><circle cx="12" cy="12" r="3" fill="#D9620A" opacity="0.15"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">レーザーリフティング</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Laser Lifting</span><div class="t-desc" style="margin-top:4px;">レーザーがSMAS層に深達<br>低痛み・DTゼロ<br>リフト+ブライトニング<br>+タイトニング同時実現</div></div></div>
+        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><path d="M12 3v18"/><path d="M5 8l7 4 7-4"/><circle cx="12" cy="12" r="3" fill="#D9620A" opacity="0.15"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">レーザーリフティング</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Laser Lifting</span><div class="t-desc" style="margin-top:4px;">レーザーがSMAS層に深達・DTゼロ<br>リフト+美白+引き締め同時実現</div></div></div>
       </div>
       <!-- 레이저 리프팅 / 레이저 리프팅 / 레이저 광에너지 SMAS층 심달, 저통증 무다운타임・리프팅+브라이트닝+타이트닝 동시 -->
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">TITANIUM</div><span class="t-name-en">Soprano Titanium</span><div class="t-desc" style="margin-top:6px;">Alma正規品（イスラエル）<br>755+810+1064nm 3波長<br>深達8~10mm・BTS効果<br>リフト+タイトニング+ブライトニング</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">TITANIUM</div><span class="t-name-en">Soprano Titanium</span><div class="t-desc" style="margin-top:6px;">Alma正規品（イスラエル）<br>755+810+1064nm 3波長<br>深達8~10mm・BTS効果</div></div>
         <!-- 티타늄 / Soprano Titanium / Alma정품(이스라엘) / 755+810+1064nm 3파장 / 심달 8~10mm・BTS효과 / 리프팅+타이트닝+브라이트닝 -->
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">Clarity II</div><span class="t-name-en">コラーゲントーニング</span><div class="t-desc" style="margin-top:6px;">Lutronic正規品（韓国）<br>755+1064nmデュアル波長<br>コラーゲン再生・毛穴改善<br>肌質向上・輪郭改善</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">Clarity II</div><span class="t-name-en">コラーゲントーニング</span><div class="t-desc" style="margin-top:6px;">Lutronic正規品（韓国）<br>755+1064nmデュアル波長<br>コラーゲン再生・毛穴改善</div></div>
         <!-- 클라리티 II / 콜라겐토닝 / Lutronic정품(한국) / 755+1064nm 듀얼파장 / 콜라겐재생・모공탄력 / 피부질 개선・윤곽개선 -->
       </div>
 
@@ -510,9 +512,9 @@
       </div>
       <!-- 매선리프팅 / 실리프팅 / PDO 흡수사 즉각리프팅+콜라겐증생 이중효과 / 리프팅・충전・잔주름・코형, 다종 실 자유조합 / 의사 직접 설계・정밀시술 -->
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">MINT ミント糸</div><span class="t-name-en">FDA三重認証・6種タイプ</span><div class="t-desc" style="margin-top:6px;">HansBiomed正規品<br>360°3D立体バーブ<br>6種タイプ<br>（鼻専用あり）</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">MINT ミント糸</div><span class="t-name-en">FDA三重認証・6種タイプ</span><div class="t-desc" style="margin-top:6px;">HansBiomed正規品<br>360°3D立体バーブ<br>6種タイプ（鼻専用あり）</div></div>
         <!-- 민트실 / FDA 3중인증・6종 / HansBiomed정품 / 360° 3D 입체돌기 / 43・이지・쁘띠・파인・팁・업(코전용) -->
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">JAMBER ボリューム糸</div><span class="t-name-en">スプリング糸・陥凹充填</span><div class="t-desc" style="margin-top:6px;">スプリング構造<br>涙袋・ほうれい線<br>即時ボリュームアップ</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">JAMBER ボリューム糸</div><span class="t-name-en">スプリング糸・陥凹充填</span><div class="t-desc" style="margin-top:6px;">スプリング構造<br>涙袋・ほうれい線<br>即時ボリューム</div></div>
         <!-- 잼버 볼륨실 / 스프링선・함몰충전 / 나선형 스프링 구조 / 눈물고랑・애플존・팔자 / 즉각볼륨 -->
       </div>
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
@@ -534,7 +536,7 @@
       <div class="detail-header-content">
         <button class="back-btn" onclick="goTo('screen-menu')">← 戻る</button><img src="data:image/png;base64,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" class="hdr-logo" alt="MIMISOME">
         <div class="detail-en">Skin Boosters &amp; Regeneration</div>
-        <div class="detail-title">肌再生</div>
+        <div class="detail-title">スキンブースター</div>
         <div class="detail-sub">内側から・肌の自然治癒力を覚醒</div>
       </div>
     </div>
@@ -551,17 +553,17 @@
       </div>
       <!-- 콜라겐 증생 프로그램 / 콜라겐 자극제 / 바이오자극제 주사, 진피층부터 자체 콜라겐 재생 유도 -->
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">SCULPTRA</div><span class="t-name-en">スカルプトラ</span><div class="t-desc" style="margin-top:6px;">PLLA・Galderma正規品<br>コラーゲン増生<br>効果持続2年</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">SCULPTRA</div><span class="t-name-en">スカルプトラ</span><div class="t-desc" style="margin-top:6px;">PLLA<br>Galderma正規品<br>効果持続2年</div></div>
         <!-- 스컬트라 / 슈옌추이 / 폴리L유산(PLLA) / 갈더마 정품 / 콜라겐증생・효과 2년 -->
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">RADIESSE</div><span class="t-name-en">レディエッセ</span><div class="t-desc" style="margin-top:6px;">CaHA・Merz正規品<br>即時充填<br>+コラーゲン増生</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">RADIESSE</div><span class="t-name-en">レディエッセ</span><div class="t-desc" style="margin-top:6px;">CaHA<br>Merz正規品<br>即時充填+増生</div></div>
         <!-- 레디어스 / 징량츠 / 하이드록시아파타이트칼슘(CaHA) / 머츠 정품 / 즉시충전+콜라겐증생 -->
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">JUVELOOK</div><span class="t-name-en">ジュベルック</span><div class="t-desc" style="margin-top:6px;">PDLLA<br>+HA<br>Skin・Volume 2バージョン</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">JUVELOOK</div><span class="t-name-en">ジュベルック</span><div class="t-desc" style="margin-top:6px;">PDLLA+HA<br>Skin・Volume<br>2タイプ</div></div>
         <!-- 쥬베룩 / 동안침 / 폴리DL유산(PDLLA)+히알루론산(HA) / 스킨・볼륨 2가지 버전 -->
       </div>
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">Re2O</div><span class="t-name-en">Elravie リツオ</span><div class="t-desc" style="margin-top:6px;">ヒト無細胞真皮基質 hADM<br>コラーゲン89%<br>ECM全層再構築</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">Re2O</div><span class="t-name-en">Elravie リツオ</span><div class="t-desc" style="margin-top:6px;">ヒトADM<br>コラーゲン89%<br>ECM全層再構築</div></div>
         <!-- Re2O / 엘라비에 리투오 / 인체무세포진피기질(hADM) / 콜라겐89%+엘라스틴+HA / ECM 전체 재건・차세대 -->
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">ULTRACOL</div><span class="t-name-en">V200 コラーゲンマイクロスフィア</span><div class="t-desc" style="margin-top:6px;">PDO微粒子・Ultra V<br>1バイアル≈1,400本<br>真皮内コラーゲン増生</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">ULTRACOL</div><span class="t-name-en">V200 コラーゲンマイクロスフィア</span><div class="t-desc" style="margin-top:6px;">PDO微粒子<br>Ultra V正規品<br>1本≈1,400糸分</div></div>
         <!-- 울트라콜 / V200 콜라겐미구 / 폴리디옥사논(PDO) 미세구 / 울트라V 정품 / 1vial≈PDO실 1,400가닥 효과 -->
       </div>
 
@@ -571,15 +573,15 @@
       </div>
       <!-- 수광・수복주사 / 스킨부스터 & PN / 폴리뉴클레오타이드 수복+히알루론산 보습+엑소좀 재생, 안에서부터 투명 유리피부 -->
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">REJURAN</div><span class="t-name-en">リジュラン PN</span><div class="t-desc" style="margin-top:6px;">サーモンDNA PDRN<br>肌底修復・弾力再生</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">REJURAN</div><span class="t-name-en">リジュラン PN</span><div class="t-desc" style="margin-top:6px;">サーモンDNA<br>肌底修復・弾力再生</div></div>
         <!-- 리쥬란 / 베이비침 PN / 연어DNA PDRN / 항염・순환촉진 / 피부장벽 수복 -->
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">LIZNE</div><span class="t-name-en">リズネ PN</span><div class="t-desc" style="margin-top:6px;">サーモンDNA PN<br>低痛み・早い回復<br>水分油分バランス・肌質向上</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">LIZNE</div><span class="t-name-en">リズネ PN</span><div class="t-desc" style="margin-top:6px;">サーモンDNA PN<br>低痛み・早い回復</div></div>
         <!-- 리즈네(LIZNE) / 리전니 PN / 연어DNA PN / 저통증・빠른회복 / 유수분밸런스・피부결개선 -->
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">Skinvive</div><span class="t-name-en">スキンバイブ</span><div class="t-desc" style="margin-top:6px;">Juvederm HA<br>Allergan正規品</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">Skinvive</div><span class="t-name-en">スキンバイブ</span><div class="t-desc" style="margin-top:6px;">Juvederm HA<br>Allergan正規品<br>持続保湿・ツヤ肌</div></div>
         <!-- 스킨바이브 / 쥬비덤수광 / 쥬비덤 정품 HA / 앨러간 정품 / 지속 보습광택 -->
       </div>
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">エクソソーム</div><span class="t-name-en">Exosome</span><div class="t-desc" style="margin-top:6px;">細胞間シグナル伝達<br>再生加速・消炎修復<br>4種オーダーメイドプラン</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">エクソソーム</div><span class="t-name-en">Exosome</span><div class="t-desc" style="margin-top:6px;">細胞間シグナル伝達<br>再生加速・消炎修復<br>4種カスタムプラン</div></div>
         <!-- 엑소좀 프로그램 / 엑소좀 / 세포간 신호전달 / 재생가속・소염수복 / 4가지 맞춤 방안 -->
         <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">院長オリジナル処方</div><span class="t-name-en">Secret Formula</span><div class="t-desc" style="margin-top:6px;">院長独自配合<br>マルチ効果<br>複合再生</div></div>
         <!-- 비밀포뮬라 / 시크릿포뮬라 / 원장 독점배합 / 다효올인원 / 복합재생 -->
@@ -589,11 +591,11 @@
 
       <div class="sub-sec-label">幹細胞プログラム Miracell</div>
       <div class="treatment-grid">
-        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8.5 8.5l-1-1M15.5 8.5l1-1M8.5 15.5l-1 1M15.5 15.5l1 1" stroke-width="1"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">Miracell 自己幹細胞</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">SMART M-CELL・17分抽出・当日完了</span><div class="t-desc" style="margin-top:4px;">100%自己細胞・無培養・99%生存率<br>細胞レベルから肌を再構築する再生医療</div></div></div>
+        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8.5 8.5l-1-1M15.5 8.5l1-1M8.5 15.5l-1 1M15.5 15.5l1 1" stroke-width="1"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">Miracell 自己幹細胞</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">SMART M-CELL・17分抽出・当日完了</span><div class="t-desc" style="margin-top:4px;">100%自己細胞<br>無培養・99%生存率<br>細胞レベルから<br>肌を再構築する再生医療</div></div></div>
       </div>
       <!-- 미라셀 자가줄기세포 / 스마트엠셀・17분추출・당일완료 / 100%자가세포・무배양・99%생존율・거부반응 제로 / 단순 충전이 아닌, 세포단위에서 피부를 재건하는 재생공학 -->
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">幹細胞肌再生</div><span class="t-name-en">Stem Cell Skin Booster</span><div class="t-desc" style="margin-top:6px;">究極アンチエイジング<br>コラーゲン+エラスチン再生<br>毛穴・シワ根本改善</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">幹細胞スキンブースター</div><span class="t-name-en">Stem Cell Skin Booster</span><div class="t-desc" style="margin-top:6px;">究極アンチエイジング<br>コラーゲン+エラスチン<br>毛穴・シワ根本改善</div></div>
         <!-- 줄기세포 피부재생 / 줄기세포 스킨부스터 / 궁극의 항노화・세포단위 수복 / 자가 콜라겐+엘라스틴 재생 / 모공・주름・피부질 근본 개선 -->
         <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">幹細胞脂肪移植</div><span class="t-name-en">Stem Cell Fat Graft</span><div class="t-desc" style="margin-top:6px;">脂肪+幹細胞同時注入<br>血管新生・生着率向上<br>1回で長期維持</div></div>
         <!-- 줄기세포 지방이식 / 줄기세포 팻그래프트 / 지방+줄기세포 동시주입 / 혈관신생・생착률 향상 / 1회 수술・장기유지 -->
@@ -612,7 +614,7 @@
 
       <div class="sub-sec-label">美容点滴 IV Drip</div>
       <div class="treatment-grid">
-        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><path d="M12 3v14"/><path d="M8 7h8"/><circle cx="12" cy="19" r="2" fill="#D9620A" opacity="0.15"/><path d="M9 11h6"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">美容点滴</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Rejuvenation IV Drip</span><div class="t-desc" style="margin-top:4px;">内側から活力注入<br>美白・抗老化・免疫・代謝<br>トータルサポート</div></div></div>
+        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><path d="M12 3v14"/><path d="M8 7h8"/><circle cx="12" cy="19" r="2" fill="#D9620A" opacity="0.15"/><path d="M9 11h6"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">美容点滴</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Rejuvenation IV Drip</span><div class="t-desc" style="margin-top:4px;">内側から活力注入<br>美白・抗老化・免疫・代謝トータルサポート</div></div></div>
       </div>
       <!-- 활력수액 / 리쥬비네이션 IV 드립 / 안에서부터 활력 주입, 미백・항노화・면역・대사 전방위 증진 -->
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
@@ -657,13 +659,13 @@
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px;">
         <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">PicoWay ピコ秒</div><span class="t-name-en">Pico Laser</span><div class="t-desc" style="margin-top:6px;">Candela正規品<br>世界最高峰<br>ピコ秒レーザー</div></div>
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">Clarity II</div><span class="t-name-en">Lutronic Dual Laser</span><div class="t-desc" style="margin-top:6px;">そばかす・シミ・黒子<br>Genesisコラーゲントーニング<br>肌リニューアル+UP</div></div>
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">CO2レーザー</div><span class="t-name-en">CO2 Laser</span><div class="t-desc" style="margin-top:6px;">ほくろ・イボ・脂漏性角化<br>精密除去</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">Clarity II</div><span class="t-name-en">Lutronic Dual Laser</span><div class="t-desc" style="margin-top:6px;">そばかす・シミ・黒子<br>Genesisコラーゲン<br>トーニング・肌UP</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">CO2レーザー</div><span class="t-name-en">CO2 Laser</span><div class="t-desc" style="margin-top:6px;">ほくろ・イボ<br>脂漏性角化<br>精密除去</div></div>
       </div>
 
       <div class="sub-sec-label">毛孔・疤痕 Pore &amp; Scar</div>
       <div class="treatment-grid">
-        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="9" cy="9" r="1.5"/><circle cx="15" cy="9" r="1.5"/><circle cx="9" cy="15" r="1.5"/><circle cx="15" cy="15" r="1.5"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">毛穴・傷跡リモデリング</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Pore &amp; Scar Remodeling</span><div class="t-desc" style="margin-top:4px;">凹み傷跡・開き毛穴・肌質のムラ<br>体系的な総合治療プログラム</div></div></div>
+        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="9" cy="9" r="1.5"/><circle cx="15" cy="9" r="1.5"/><circle cx="9" cy="15" r="1.5"/><circle cx="15" cy="15" r="1.5"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">毛穴・傷跡リモデリング</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Pore &amp; Scar Remodeling</span><div class="t-desc" style="margin-top:4px;">凹み傷跡・開き毛穴<br>肌質のムラ<br>総合治療プログラム</div></div></div>
       </div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
         <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">POTENZA</div><span class="t-name-en">Gold RF Microneedle</span><div class="t-desc" style="margin-top:6px;">凹み傷跡・開き毛穴<br>RF再生</div></div>
@@ -685,21 +687,21 @@
 
       <div class="sub-sec-label">ニキビ治療 Acne</div>
       <div class="treatment-grid">
-        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8" stroke-width="1"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">ニキビ総合治療</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Acne Treatment Program</span><div class="t-desc" style="margin-top:4px;">皮脂腺破壊・光殺菌<br>ピーリング・幹細胞修復<br>重症度に応じたオーダーメイドプラン</div></div></div>
+        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M8 12h8M12 8v8" stroke-width="1"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">ニキビ総合治療</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Acne Treatment Program</span><div class="t-desc" style="margin-top:4px;">皮脂腺破壊・光殺菌・ピーリング・幹細胞修復<br>重症度に応じたオーダーメイドプラン</div></div></div>
       </div>
       <!-- 여드름 종합치료 / 피지선파괴・광역동살균・필링컨트롤・줄기세포수복, 중증도에 따라 맞춤 설계 -->
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
         <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">Agnes</div><span class="t-name-en">マイクロニードルRF</span><div class="t-desc" style="margin-top:6px;">鼻の黒ずみ・毛穴詰まり<br>皮脂腺精密破壊</div></div>
         <!-- 아그네스 / 미세침고주파 / 코 블랙헤드・완고한 화이트헤드 / 피지선 정밀 파괴 / 근원적 치료로 재발 방지 -->
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">Gold PTT+Genesis</div><span class="t-name-en">ゴールドPTT+コラーゲン修復</span><div class="t-desc" style="margin-top:6px;">中重度・繰り返すニキビ<br>6週間プログラムで深層殺菌<br>Genesisコラーゲントーニング修復</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">Gold PTT+Genesis</div><span class="t-name-en">ゴールドPTT+コラーゲン修復</span><div class="t-desc" style="margin-top:6px;">中重度・繰り返すニキビ<br>6週間プログラムで深層殺菌<br>Genesisコラーゲン修復</div></div>
         <!-- 골드PTT+제네시스 / 황금광역동+콜라겐수복 / 중증・반복 여드름 / 6주 프로그램 심층살균 / 제네시스 콜라겐토닝 수복 -->
       </div>
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">エクソソーム+MTS</div><span class="t-name-en">エクソソーム導入療法</span><div class="t-desc" style="margin-top:6px;">幹細胞エクソソーム<br>消炎修復・バリア再生</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">エクソソーム+MTS</div><span class="t-name-en">エクソソーム導入療法</span><div class="t-desc" style="margin-top:6px;">幹細胞エクソソーム<br>消炎・バリア再生</div></div>
         <!-- 엑소좀+MTS / 엑소좀도입요법 / 줄기세포 엑소좀 도입 / 염증성 여드름 소염수복 / 피부장벽 재생 -->
         <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">ピーリング</div><span class="t-name-en">Aqua・Miracle・Rose</span><div class="t-desc" style="margin-top:6px;">Aqua・Miracle・Rose<br>角質代謝・皮脂制御</div></div>
         <!-- 필링프로그램 / 아쿠아필・미라클필・로즈필 / 수비사・케미컬필링 / 각질대사・피지조절 / 얼굴・가슴・등 여드름 -->
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">ニキビ基礎管理</div><span class="t-name-en">圧出・消炎注射・鎮静</span><div class="t-desc" style="margin-top:6px;">プロ圧出+炎症注射<br>クーリング鎮静ケア<br>他の施術と併用で効果倍増</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">ニキビ基礎管理</div><span class="t-name-en">圧出・消炎注射・鎮静</span><div class="t-desc" style="margin-top:6px;">圧出+消炎注射<br>クーリング鎮静<br>併用で効果倍増</div></div>
         <!-- 여드름 기초관리 / 압출・염증주사・진정 / 전문압출+염증주사 / 크라이오 진정관리 / 시술 병행 시 효과 배가 -->
       </div>
 
@@ -711,7 +713,7 @@
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr 1fr;">
         <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">LDM超音波</div><span class="t-name-en">再生・リフトケア</span><div class="t-desc" style="margin-top:6px;">超音波深層導入<br>再生+引き締め</div></div>
         <!-- LDM 초음파 / 재생・리프팅관리 / 초음파 심층도입 / 재생+탄력 이중효과 -->
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">O₂Derm</div><span class="t-name-en">O2toデルム</span><div class="t-desc" style="margin-top:6px;">酸素ドーム+音イオン導入<br>90%高濃度酸素+LED</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">O₂Derm</div><span class="t-name-en">O2デルム</span><div class="t-desc" style="margin-top:6px;">酸素ドーム<br>+音イオン導入<br>90%高濃度酸素+LED</div></div>
         <!-- 오투덤 / 산소테라피 / 고압산소도입 / 피부활력광택 -->
         <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name">Lara Peel</div><span class="t-name-en">Lara Peel</span><div class="t-desc" style="margin-top:6px;">マイルドピーリング<br>角質更新・トーンUP</div></div>
         <!-- 라라필 / 라라필링 / 부드러운 필링 / 각질갱신・브라이트닝 -->
@@ -750,13 +752,13 @@
 
       <div class="sub-sec-label">醫學除毛 Hair Removal</div>
       <div class="treatment-grid">
-        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><path d="M12 3v4"/><path d="M12 7c-3 0-6 2-6 6s3 5 6 5 6-1 6-5-3-6-6-6z"/><path d="M9 13h6" stroke-width="1"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">医療レーザー脱毛</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Medical Laser Hair Removal</span><div class="t-desc" style="margin-top:4px;">Apogee Elite Plus（755+1064nm）<br>Cynosure正規品・FDA認証<br>非接触・自動冷却</div></div></div>
+        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><path d="M12 3v4"/><path d="M12 7c-3 0-6 2-6 6s3 5 6 5 6-1 6-5-3-6-6-6z"/><path d="M9 13h6" stroke-width="1"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">医療レーザー脱毛</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">Medical Laser Hair Removal</span><div class="t-desc" style="margin-top:4px;">Apogee Elite Plus（755+1064nm）<br>Cynosure正規品・FDA認証・非接触・自動冷却</div></div></div>
       </div>
       <!-- 의학 레이저 제모 / 메디컬 레이저 제모 / Apogee Elite Plus 듀얼파장 레이저(755+1064nm) / Cynosure정품・미국FDA인증・비접촉 공중타격・자체쿨링시스템 -->
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
         <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">レディース脱毛</div><span class="t-name-en">Women's</span><div class="t-desc" style="margin-top:6px;">ワキ・口周り・顔全体<br>ビキニ・VIO<br>四肢・ヘアライン</div></div>
         <!-- 여성제모 / 여성 / 겨드랑이・인중・얼굴 / 비키니・브라질리언 / 사지・헤어라인 -->
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">メンズ脱毛</div><span class="t-name-en">Men's</span><div class="t-desc" style="margin-top:6px;">ヒゲ・もみあげ・胸毛<br>VIO・全身対応<br>回数無制限プランあり</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">メンズ脱毛</div><span class="t-name-en">Men's</span><div class="t-desc" style="margin-top:6px;">ヒゲ・もみあげ<br>VIO・全身対応<br>回数無制限あり</div></div>
         <!-- 남성제모 / 남성 / 수염・구레나룻・가슴 / 브라질리언・전신 / 무제한 방안 선택가능 -->
       </div>
 
@@ -792,23 +794,25 @@
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
         <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">直角肩フィラー</div><span class="t-name-en">Shoulder Filler</span><div class="t-desc" style="margin-top:6px;">直角肩ライン造形<br>優雅な体形・女神肩</div></div>
         <!-- 직각어깨필러 / 숄더필러 / 직각어깨라인 조형 / 우아한 체형・여신어깨 -->
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">骨盤の凹み修正</div><span class="t-name-en">Hip Dip Filler</span><div class="t-desc" style="margin-top:6px;">ヒップディップ修正<br>丸みのあるヒップ・完璧なカーブ</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">骨盤の凹み修正</div><span class="t-name-en">Hip Dip Filler</span><div class="t-desc" style="margin-top:6px;">ヒップディップ修正<br>丸みのあるヒップ<br>完璧なカーブ</div></div>
         <!-- 골반필러 / 힙딥필러 / 골반함몰 수정 / 둥근힙형・완벽곡선 -->
       </div>
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
         <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">胸フィラー</div><span class="t-name-en">Breast Volume Filler</span><div class="t-desc" style="margin-top:6px;">非手術バストアップ<br>自然で柔らか・切開なし</div></div>
         <!-- 가슴볼륨필러 / 브레스트 볼륨필러 / 비수술 가슴확대 / 자연스럽고 부드러움・무절개 -->
         <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">耳郭造形</div><span class="t-name-en">Elf Ear Filler</span><div class="t-desc" style="margin-top:6px;">エルフ耳<br>エルフ風スタイリング</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">フェミニンケア</div><span class="t-name-en">Intimate Filler</span><div class="t-desc" style="margin-top:6px;">デリケートゾーンケア<br>弾力・引き締め</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">G-ウェルネス</div><span class="t-name-en">G-Shot</span><div class="t-desc" style="margin-top:6px;">Gスポットケア<br>満足度・自信アップ</div></div>
         <!-- 엘프요정귀필러 / 엘프이어필러 / 귀연골 조형 / 요정풍 스타일링 -->
       </div>
 
       <div class="sub-sec-label">タトゥー除去 Tattoo Removal</div>
       <div class="treatment-grid">
-        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M8 8l8 8M16 8l-8 8" stroke-width="1"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">PicoWay タトゥー除去</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">PicoWay Tattoo Removal</span><div class="t-desc" style="margin-top:4px;">Candela正規品・4波長ピコ秒<br>（532+730+785+1064nm）<br>全色系対応・0.9GW最高出力<br>瘢痕リスク最小</div></div></div>
+        <div class="t-card wide"><div class="ci" style="width:28px;height:28px;"><svg viewBox="0 0 24 24" fill="none" stroke="#D9620A" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="12" r="8"/><path d="M8 8l8 8M16 8l-8 8" stroke-width="1"/></svg></div><div><div class="t-name" style="font-size:15px;letter-spacing:2px;">PicoWay タトゥー除去</div><span class="t-name-en" style="font-size:11px;letter-spacing:2px;">PicoWay Tattoo Removal</span><div class="t-desc" style="margin-top:4px;">Candela正規品・4波長ピコ秒（532+730+785+1064nm）<br>全色系対応・0.9GW最高出力・瘢痕リスク最小</div></div></div>
       </div>
       <!-- 피코웨이 문신제거 / 피코웨이 타투리무벌 / Candela정품・4파장 피코초레이저(532+730+785+1064nm) / 전색계 문신 모두 대응・0.9GW 최고 피크파워 / 광음향효과 잉크분쇄・열손상 극저・흉터위험 최소화 -->
       <div class="treatment-grid" style="grid-template-columns:1fr 1fr;">
-        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">小型タトゥー</div><span class="t-name-en">Small Tattoo</span><div class="t-desc" style="margin-top:6px;">眉・アイライン・リップライン<br>小デザイン・単色＆カラー</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">小型タトゥー</div><span class="t-name-en">Small Tattoo</span><div class="t-desc" style="margin-top:6px;">眉・アイライン<br>リップライン<br>小デザイン・単色＆カラー</div></div>
         <!-- 소형 문신 / 스몰 타투 / 눈썹・아이라인・입술선 / 소형도안・단색&컬러 -->
         <div class="t-card" style="text-align:center;padding:18px 10px 14px;"><div class="t-name">大面積タトゥー</div><span class="t-name-en">Large Tattoo</span><div class="t-desc" style="margin-top:6px;">腕・背中・脚<br>フルカラー・頑固インク対応</div></div>
         <!-- 대면적 문신 / 라지 타투 / 팔・등・다리 / 풀컬러・난치성 잉크 대응 -->
@@ -879,7 +883,7 @@
         <!-- 콧볼축소・매부리 / 에일러 / 험프 / 절개・비절개 콧볼축소 / 매부리 절골교정 -->
       </div>
       <div class="treatment-grid">
-        <div class="t-card wide" style="text-align:center;padding:14px 10px;"><div class="t-name" style="font-size:13px;">追加：耳軟骨・臍真皮・MegaDerm</div><span class="t-name-en" style="font-size:10px;">ニーズに合わせて柔軟に組み合わせ可能</span></div>
+        <div class="t-card wide" style="text-align:center;padding:14px 10px;flex-direction:column;gap:2px;"><div class="t-name" style="font-size:14px;">追加：耳軟骨・臍真皮・MegaDerm</div><div class="t-desc" style="margin-top:2px;">ニーズに合わせて柔軟に組み合わせ可能</div></div>
       </div>
       <!-- 추가옵션: 귀연골・배꼽진피・메가덤 / 필요에 따라 유연하게 조합 가능 -->
 
@@ -893,7 +897,7 @@
         <!-- 이마거상 / 내시경FL / 내시경기술 / 눈썹눈 리프팅 -->
         <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name" style="font-size:13px;">ミニリフト</div><span class="t-name-en" style="font-size:10px;">Mini Face Lift</span><div class="t-desc" style="margin-top:6px;font-size:11px;">小切開・早い回復<br>軽〜中度のたるみ</div></div>
         <!-- 미니거상 / 미니페이스리프트 / 소절개・빠른회복 / 경중도 처짐 -->
-        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name" style="font-size:13px;">全顔リフト</div><span class="t-name-en" style="font-size:10px;">Full Face Lift</span><div class="t-desc" style="margin-top:6px;font-size:11px;">深層SMAS<br>全面的若返りリモデリング</div></div>
+        <div class="t-card" style="text-align:center;padding:18px 8px 14px;"><div class="t-name" style="font-size:13px;">全顔リフト</div><span class="t-name-en" style="font-size:10px;">Full Face Lift</span><div class="t-desc" style="margin-top:6px;font-size:11px;">深層SMAS<br>全面的若返り</div></div>
         <!-- 전체거상 / 풀페이스리프트 / 심층SMAS / 전면 역노화 리모델링 -->
       </div>
 
@@ -986,6 +990,6 @@ function goTo(id) {
   document.getElementById(id).classList.add('active');
   window.scrollTo(0, 0);
 }
-</script> 
+</script>
 </body>
 </html>
